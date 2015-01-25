@@ -24,10 +24,10 @@
         /*This function altars the outcome for certain choices once the sword item has been picked up */
         function hasSword() {
             document.getElementById("shark").innerHTML = "The shark torpedos straight towards you " +
-            "with its mouth wide-open. You hold your sword out directly out towards the shark. With no " +
+            "with its mouth wide-open. You hold your sword out directly towards the shark. With no " +
             "fear, the shark swims straight at you and impales himself on the sword. You try to withdraw " +
             "the sword from his body, but it is stuck too deep. You proceed to the right island. As you " +
-            "arrive onshore a net is thrown over you. This island is inhabited... by canibals! The " +
+            "arrive onshore a net is thrown over you. This island is inhabited... by cannibals! The " +
             "cannibals cook and eat you. You died.";
 
             document.getElementById("kraken").innerHTML = "The Kraken swings one of its tentacles at you " +
@@ -41,14 +41,17 @@
         function reset() {
             document.getElementById("altar").innerHTML = "<p>As you approach the altar a large tentacle " +
             "reaches out of the water and grabs your leg. Before you have a chance to act you are dragged " +
-            "under water. The last thing you see is a large open mouth. You died.</p>";
+            "under water. The last thing you see is a large open mouth. You died.</p>" +
+            "<p><a href=\"#1\">START OVER</a></p>";
 
             document.getElementById("shark").innerHTML = "You punch the shark on the nose as hard as you " +
-            "can. He doesn't flinch. The shark proceeds to bite you. You died.";
+            "can. He doesn't flinch. The shark proceeds to bite you. You died." +
+            "<p><a href=\"#1\">START OVER</a></p>";
 
             document.getElementById("kraken").innerHTML = "You run at the Kraken ready to punch with all " +
             "your might. Before you can, the Kraken whips out a tentacle tripping you. The Kraken then " +
-            "wraps one of its tentacles around you and throws you into its mouth. You died.";
+            "wraps one of its tentacles around you and throws you into its mouth. You died." +
+            "<p><a href=\"#1\">START OVER</a></p>";
         } //function reset ends
     </script>
 
