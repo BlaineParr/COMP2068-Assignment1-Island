@@ -12,14 +12,33 @@
 
     <script type="text/javascript">
         /*This function altars the outcome for certain choices once the idol item has been picked up */
-        function hasIdol()
-        {
+        function hasIdol() {
             document.getElementById("altar").innerHTML = "<p>A large tentacle reaches out of the water and is about to grab you when " +
             "the idol you picked begins glowing and sends out a jolt of electricty zapping the tentacle. In a split second, with a " +
             "large splash a giant creature hops out of the water. You've angered the Kraken!</p>" +
-            "<p><a href=\"#13\">FIGHT</a> the Kraken.</p>" +
-            "<p><a href=\"#14\">RUN</a>!</p>";
-        }
+            "<p><a href=\"#12\">FIGHT</a> the Kraken.</p>" +
+            "<p><a href=\"#13\">RUN</a>!</p>";
+        } //function hasIdol ends
+
+        /*This function altars the outcome for certain choices once the sword item has been picked up */
+        function hasSword() {
+            document.getElementById("shark").innerHTML = "The shark torpedos straight towards you " +
+            "with its mouth wide-open. You hold your sword out directly out towards the shark. With no " +
+            "fear, the shark swims straight at you and impales himself on the sword. You try to withdraw " +
+            "the sword from his body, but it is stuck too deep. You proceed to the right island. As you " +
+            "arrive onshore a net is thrown over you. This island is inhabited... by canibals! The " +
+            "cannibals cook and eat you. You died.";
+
+            document.getElementById("kraken").innerHTML = "The Kraken swings one of its tentacles at you " +
+            "but you cut it off mid-swing! The Kraken flinches and roars from the pain, leaving it open " +
+            "for another attack. You charge at it and shove the sword directly into its head. The Kraken " +
+            "falls over lifeless. You know you'll have all the food you need for a long time. You wait on " +
+            "the island for a few days until a passing ship rescues you. You survived!";
+        } //function hasSword ends
+
+        function reset() {
+
+        } //function reset ends
     </script>
 
     <div id="impress">
@@ -70,21 +89,60 @@
                     infront of the lake. You also notice something shining off to your left.
                 </p>
                 <p>Head to the <a href="#8">ALTAR</a>.</p>
-                <p>Search for the source of the <a href="#9">SHINING</a>.</p>
+                <p>Search for the source of the <a href="#9" onclick="hasSword();">SHINING</a>.</p>
             </div>
         </div>
 
         <!--Slide 8 - The Altar-->
-        <!--Children are -->
+        <!--Children are 12 and 13 (only if item has been collected)-->
         <div id="8" class="step slide" data-x="10500">
             <div id="slide-text">
                 <div id="altar">
                     <p>
-                        As you approach the altar a large tentacle reaches out of the water and grabs your
-                        leg. Before you have a chance to act you are draggen under water. The last thing you
-                        see is a large open mouth. You died.
+                        As you approach the altar a large tentacle reaches out of the water and grabs
+                        your leg. Before you have a chance to act you are dragged under water. The last
+                        thing you see is a large open mouth. You died.
                     </p>
                 </div>
+            </div>
+        </div>
+
+        <!--Slide 12 - Fight the Kraken-->
+        <div id="12" class="step slide" data-x="16500">
+            <div id="slide-text">
+                <div id="kraken">
+                    <p>
+                        You run at the Kraken ready to punch with all your might. Before you can, the
+                        Kraken whips out a tentacle tripping you. The Kraken then wraps one of its
+                        tentacles around you and throws you into its mouth. You died.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!--Slide 13 - RUN!-->
+        <div id="13" class="step slide" data-x="18000">
+            <div id="slide-text">
+                <div>
+                    <p>
+                        You turn and run faster than you knew you could, however it's no use. In a swift
+                        movement the Kraken raises one of its tentacles and slams it down on you. You
+                        died.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!--Slide 9 - The Shining-->
+        <div id="9" class="step slide" data-x="12000">
+            <div id="slide-text">
+                <p>
+                    You head towards the area you saw the shining light. You find a sword with the tip of
+                    its blade stuck into the ground. You take the sword. You could now go to the altar
+                    you saw earlier or head back to where you awoke.
+                </p>
+                <p><a href="#8">GO</a> to the altar.</p>
+                <p><a href="#1">BACK</a> to where you awoke.</p>
             </div>
         </div>
 
@@ -102,30 +160,66 @@
         </div>
 
         <!--Slide 6 - Swimming to the Left Island-->
-        <!--Children are 9, 10. Connected to 1-->
+        <!--Child is 14. Connected to 1 and 7-->
         <div id="6" class="step slide" data-x="7500">
             <div id="slide-text">
                 <p>
-                    As you swim towards the left island, you find a strange wooden idol floating in the ocean. It looks like a squid.
-                    You feel like the idol is somehow related to the island you just left. You take the idol. Should you continue
-                    swimming to the left island, instead go to the right island or go back to where you came from?
+                    As you swim towards the left island, you find a strange wooden idol floating in the
+                    ocean. It looks like a squid. You feel like the idol is somehow related to the island
+                    you just left. You take the idol. Should you continue swimming to the left island,
+                    instead go to the right island or go back to where you came from?
                 </p>
-                <p>Continue to the <a href="#9">LEFT</a> island.</p>
-                <p>Swim to the <a href="#10">RIGHT</a> island.</p>
+                <p>Continue to the <a href="#14">LEFT</a> island.</p>
+                <p>Swim to the <a href="#7">RIGHT</a> island.</p>
                 <p>Go <a href="#1">BACK</a>.</p>
             </div>
         </div>
 
+        <!--Slide 14 - The Left Island-->
+        <div id="14" class="step slide" data-x="19500">
+            <div id="slide-text">
+                <p>
+                    As you get close to the island the idol you're carrying begins to glow. The water
+                    around you starts to swirl. The swirling becomes faster and faster. A whirlpool has
+                    formed around you! You are sucked underwater and as you submerge the idol escapes
+                    your hand. The violent thrashing of the water whips you around -- conciousness fades.
+                    You died.
+                </p>
+            </div>
+        </div>
+
         <!--Slide 7 - Swimming to the Right Island-->
-        <!--Children are 11 and 12-->
+        <!--Children are 10 and 11-->
         <div id="7" class="step slide" data-x="9000">
             <div id="slide-text">
                 <p>
-                    As you swim towards the right island, you see a shark in your path. He is swimming directly towards you... he sees
-                    you too! You have two choices, attempt to fight the shark or swim away as fast as you can.
+                    As you swim towards the right island, you see a shark in your path. He is swimming
+                    directly towards you... he sees you too! You have two choices, attempt to fight the
+                    shark or swim away as fast as you can.
                 </p>
-                <p><a href="#11">FIGHT</a> the shark.</p>
-                <p><a href="#12">SWIM</a> away.</p>
+                <p><a href="#10">FIGHT</a> the shark.</p>
+                <p><a href="#11">SWIM</a> away.</p>
+            </div>
+        </div>
+
+        <!--Slide 10 - Fight the Shark-->
+        <div id="10" class="step slide" data-x="13500">
+            <div id="slide-text">
+                <p id="shark">
+                    You punch the shark on the nose as hard as you can. He doesn't flinch. The shark
+                    proceeds to bite you. You died.
+                </p>
+            </div>
+        </div>
+
+        <!--Slide 11 - Swimming Away-->
+        <div id="11" class="step slide" data-x="15000">
+            <div id="slide-text">
+                <p>
+                    You swim as fast as you can back towards the island you came from, but it's no use.
+                    The shark is too fast and catches up to you. You feel the shark bite your legs and
+                    you lose conciousness. You died.
+                </p>
             </div>
         </div>
     </div>
