@@ -13,9 +13,10 @@
     <script type="text/javascript">
         /*This function altars the outcome for certain choices once the idol item has been picked up */
         function hasIdol() {
-            document.getElementById("altar").innerHTML = "<p>A large tentacle reaches out of the water and is about to grab you when " +
-            "the idol you picked begins glowing and sends out a jolt of electricty zapping the tentacle. In a split second, with a " +
-            "large splash a giant creature hops out of the water. You've angered the Kraken!</p>" +
+            document.getElementById("altar").innerHTML = "<p>A large tentacle reaches out of the " +
+            "water and is about to grab you when the idol you picked begins glowing and sends out " +
+            "a jolt of electricty zapping the tentacle. In a split second, with a large splash a " +
+            "giant creature hops out of the water. You've angered the Kraken!</p>" +
             "<p><a href=\"#12\">FIGHT</a> the Kraken.</p>" +
             "<p><a href=\"#13\">RUN</a>!</p>";
         } //function hasIdol ends
@@ -36,8 +37,18 @@
             "the island for a few days until a passing ship rescues you. You survived!";
         } //function hasSword ends
 
+        //this function resets any changes made by collecting items in the game
         function reset() {
+            document.getElementById("altar").innerHTML = "<p>As you approach the altar a large tentacle " +
+            "reaches out of the water and grabs your leg. Before you have a chance to act you are dragged " +
+            "under water. The last thing you see is a large open mouth. You died.</p>";
 
+            document.getElementById("shark").innerHTML = "You punch the shark on the nose as hard as you " +
+            "can. He doesn't flinch. The shark proceeds to bite you. You died.";
+
+            document.getElementById("kraken").innerHTML = "You run at the Kraken ready to punch with all " +
+            "your might. Before you can, the Kraken whips out a tentacle tripping you. The Kraken then " +
+            "wraps one of its tentacles around you and throws you into its mouth. You died.";
         } //function reset ends
     </script>
 
@@ -77,6 +88,7 @@
                     You attempt to climb the tree. As you are climbing you lose your grip and fall
                     head-first to the ground. You died.
                 </p>
+                <p><a href="#1" onclick="reset();">START OVER</a></p>
             </div>
         </div>
 
@@ -103,6 +115,7 @@
                         your leg. Before you have a chance to act you are dragged under water. The last
                         thing you see is a large open mouth. You died.
                     </p>
+                    <p><a href="#1">START OVER</a></p>
                 </div>
             </div>
         </div>
@@ -110,13 +123,12 @@
         <!--Slide 12 - Fight the Kraken-->
         <div id="12" class="step slide" data-x="16500">
             <div id="slide-text">
-                <div id="kraken">
-                    <p>
-                        You run at the Kraken ready to punch with all your might. Before you can, the
-                        Kraken whips out a tentacle tripping you. The Kraken then wraps one of its
-                        tentacles around you and throws you into its mouth. You died.
-                    </p>
-                </div>
+                <p id="kraken">
+                    You run at the Kraken ready to punch with all your might. Before you can, the
+                    Kraken whips out a tentacle tripping you. The Kraken then wraps one of its
+                    tentacles around you and throws you into its mouth. You died.
+                </p>
+                <p><a href="#1">START OVER</a></p>
             </div>
         </div>
 
@@ -129,6 +141,7 @@
                         movement the Kraken raises one of its tentacles and slams it down on you. You
                         died.
                     </p>
+                    <p><a href="#1" onclick="reset();">START OVER</a></p>
                 </div>
             </div>
         </div>
@@ -185,6 +198,7 @@
                     your hand. The violent thrashing of the water whips you around -- conciousness fades.
                     You died.
                 </p>
+                <p><a href="#1" onclick="reset();">START OVER</a></p>
             </div>
         </div>
 
@@ -209,6 +223,7 @@
                     You punch the shark on the nose as hard as you can. He doesn't flinch. The shark
                     proceeds to bite you. You died.
                 </p>
+                <p><a href="#1" onclick="reset();">START OVER</a></p>
             </div>
         </div>
 
@@ -220,6 +235,7 @@
                     The shark is too fast and catches up to you. You feel the shark bite your legs and
                     you lose conciousness. You died.
                 </p>
+                <p><a href="#1" onclick="reset();">START OVER</a></p>
             </div>
         </div>
     </div>
