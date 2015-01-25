@@ -11,7 +11,8 @@
     <link href="css/game.css" rel="stylesheet" />
 
     <div id="impress">
-        <!--Slide 1-->
+        <!--Slide 1 - Starting Point-->
+        <!--Children are 2 and 3-->
         <div id="1" class="step slide">
             <div id="slide-text">
                 <p>
@@ -24,8 +25,9 @@
             </div>
         </div>
 
-        <!--Slide 2-->
-        <div id="2" class="step slide" data-x="-1500">
+        <!--Slide 2 - Head to Jungle-->
+        <!--Children are 4 and 5-->
+        <div id="2" class="step slide" data-x="1500">
             <div id="slide-text">
                 <p>
                     You head into the jungle, but you are quite thirsty. You see a tree with coconuts in it,
@@ -37,8 +39,32 @@
             </div>
         </div>
 
-        <!--Slide 3-->
-        <div id="3" class="step slide" data-x="1500">
+        <!--Slide 4 - Climb the Tree-->
+        <div id="4" class="step slide" data-x="4500">
+            <div id="slide-text">
+                <p>
+                    You attempt to climb the tree. As you are climbing you lose your grip and fall
+                    head-first to the ground. You died.
+                </p>
+            </div>
+        </div>
+
+        <!--Slide 5 - Head Towards the Water-->
+        <!--Children are 8 and 9-->
+        <div id="5" class="step slide" data-x="6000">
+            <div id="slide-text">
+                <p>
+                    You head to the water you spotted. As you approach, you notice a strange altar
+                    infront of the lake. You also notice something shining off to your left.
+                </p>
+                <p>Head to the <a href="#8">ALTAR</a>.</p>
+                <p>Search for the source of the <a href="#9">SHINING</a>.</p>
+            </div>
+        </div>
+
+        <!--Slide 3 - Swim to Islands-->
+        <!--Children are 6 and 7-->
+        <div id="3" class="step slide" data-x="3000">
             <div id="slide-text">
                 <p>
                     You swim towards the islands. Halfway through your swim, you must decide if you want to
@@ -48,7 +74,36 @@
                 <p>Swim to the <a href="#7">RIGHT</a> island.</p>
             </div>
         </div>
+
+        <!--Slide 6 - Swimming to the Left Island-->
+        <!--Children are 9, 10. Connected to 1-->
+        <div id="6" class="step slide" data-x="7500">
+            <div id="slide-text">
+                <p>
+                    As you swim towards the left island, you find a strange wooden idol floating in the ocean. It looks like a squid.
+                    You feel like the idol is somehow related to the island you just left. You take the idol. Should you continue
+                    swimming to the left island, instead go to the right island or go back to where you came from?
+                </p>
+                <p>Continue to the <a href="#9">LEFT</a> island.</p>
+                <p>Swim to the <a href="#10">RIGHT</a> island.</p>
+                <p>Go <a href="#1">BACK</a>.</p>
+            </div>
+        </div>
+
+        <!--Slide 7 - Swimming to the Right Island-->
+        <!--Children are 11 and 12-->
+        <div id="7" class="step slide" data-x="7500">
+            <div id="slide-text">
+                <p>
+                    As you swim towards the right island, you see a shark in your path. He is swimming directly towards you... he sees
+                    you too! You have two choices, attempt to fight the shark or swim away as fast as you can.
+                </p>
+                <p><a href="#11">FIGHT</a> the shark.</p>
+                <p><a href="#10">SWIM</a> away.</p>
+            </div>
+        </div>
     </div>
+
     <!--JavaScript Section------------------------------------------------------------------------------>
     <script src="Scripts/lib/impress.js"></script>
     <script src="Scripts/game.js"></script>
