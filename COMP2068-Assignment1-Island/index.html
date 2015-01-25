@@ -5,11 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Island</title>
 </head>
-<body>
+<body onload="init();">
     <!--CSS Section------------------------------------------------------------------------------------->
+    <link href="css/reset.css" rel="stylesheet" />
     <link href="css/game.css" rel="stylesheet" />
 
+    <div id="impress">
+        <!--Slide 1-->
+        <div id="1" class="step slide">
+            <div id="slide-text">
+                <p>
+                    You were on a cruise ship when it hit a rock and sank. You awake on an uninhabited
+                    island. You can either head into the jungle or swim to one of two fairly close islands you
+                    see in the distance.
+                </p>
+                <p><a href="#2">HEAD</a> into the jungle.</p>
+                <p><a href="#3">SWIM</a> towards the islands.</p>
+            </div>
+        </div>
+
+        <!--Slide 2-->
+        <div id="2" class="step slide" data-x="-1500">
+            <div id="slide-text">
+                <p>
+                    You head into the jungle, but you are quite thirsty. You see a tree with coconuts in it,
+                    but you also see what looks like it could be a body of fresh water closer to the centre
+                    of the island.
+                </p>
+                <p><a href="#4">CLIMB</a> the tree.</p>
+                <p><a href="#5">HEAD</a> towards the water.</p>
+            </div>
+        </div>
+
+        <!--Slide 3-->
+        <div id="3" class="step slide" data-x="1500">
+            <div id="slide-text">
+                <p>
+                    You swim towards the islands. Halfway through your swim, you must decide if you want to
+                    head to the left island, or the right island.
+                </p>
+                <p>Swim to the <a href="#6">LEFT</a> island.</p>
+                <p>Swim to the <a href="#7">RIGHT</a> island.</p>
+            </div>
+        </div>
+    </div>
     <!--JavaScript Section------------------------------------------------------------------------------>
+    <script src="Scripts/lib/impress.js"></script>
     <script src="Scripts/game.js"></script>
 </body>
 </html>
