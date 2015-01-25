@@ -10,6 +10,18 @@
     <link href="css/reset.css" rel="stylesheet" />
     <link href="css/game.css" rel="stylesheet" />
 
+    <script type="text/javascript">
+        /*This function altars the outcome for certain choices once the idol item has been picked up */
+        function hasIdol()
+        {
+            document.getElementById("altar").innerHTML = "<p>A large tentacle reaches out of the water and is about to grab you when " +
+            "the idol you picked begins glowing and sends out a jolt of electricty zapping the tentacle. In a split second, with a " +
+            "large splash a giant creature hops out of the water. You've angered the Kraken!</p>" +
+            "<p><a href=\"#13\">FIGHT</a> the Kraken.</p>" +
+            "<p><a href=\"#14\">RUN</a>!</p>";
+        }
+    </script>
+
     <div id="impress">
         <!--Slide 1 - Starting Point-->
         <!--Children are 2 and 3-->
@@ -62,6 +74,20 @@
             </div>
         </div>
 
+        <!--Slide 8 - The Altar-->
+        <!--Children are -->
+        <div id="8" class="step slide" data-x="10500">
+            <div id="slide-text">
+                <div id="altar">
+                    <p>
+                        As you approach the altar a large tentacle reaches out of the water and grabs your
+                        leg. Before you have a chance to act you are draggen under water. The last thing you
+                        see is a large open mouth. You died.
+                    </p>
+                </div>
+            </div>
+        </div>
+
         <!--Slide 3 - Swim to Islands-->
         <!--Children are 6 and 7-->
         <div id="3" class="step slide" data-x="3000">
@@ -70,7 +96,7 @@
                     You swim towards the islands. Halfway through your swim, you must decide if you want to
                     head to the left island, or the right island.
                 </p>
-                <p>Swim to the <a href="#6">LEFT</a> island.</p>
+                <p>Swim to the <a href="#6" onclick="hasIdol();">LEFT</a> island.</p>
                 <p>Swim to the <a href="#7">RIGHT</a> island.</p>
             </div>
         </div>
@@ -92,14 +118,14 @@
 
         <!--Slide 7 - Swimming to the Right Island-->
         <!--Children are 11 and 12-->
-        <div id="7" class="step slide" data-x="7500">
+        <div id="7" class="step slide" data-x="9000">
             <div id="slide-text">
                 <p>
                     As you swim towards the right island, you see a shark in your path. He is swimming directly towards you... he sees
                     you too! You have two choices, attempt to fight the shark or swim away as fast as you can.
                 </p>
                 <p><a href="#11">FIGHT</a> the shark.</p>
-                <p><a href="#10">SWIM</a> away.</p>
+                <p><a href="#12">SWIM</a> away.</p>
             </div>
         </div>
     </div>
