@@ -1,4 +1,45 @@
-﻿<!DOCTYPE html>
+﻿<!--
+    This program is a choose your own adventure game! You awake on an uninhabited island and must choose the path to survival.
+    There are many paths that lead to failure, but only one that leads to success, can you find it? Uses the impress.js library.
+
+    Title: COMP2068-Assignment1-Island
+    Author: Blaine Parr
+    Last Modified By: Blaine Parr
+    Date Last Modified: January 28, 2015
+
+    Revision History:
+    v0.1:
+    -Created Basic structure for game.
+
+    v0.2:
+    -Implemented impressjs along with first decision.
+
+    v0.3:
+    -Added several more decision levels for the game.
+
+    v0.4:
+    -Implemented JavaScript to change one outcome under certain conditions.
+
+    v1.0:
+    -Finished the main game.
+
+    v1.1:
+    -Added reset function and start over links.
+
+    v1.2:
+    -Fixed a few typos/grammar errors.
+
+    v1.3:
+    -Bug Fixes.
+
+    v1.4:
+    -Added a header.
+    -Renamed slides.
+    -Edited comments.
+    -Removed unecessary folders.
+    -Implement CSS from The Dragon game.
+-->
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -6,19 +47,22 @@
     <title>The Island</title>
 </head>
 <body onload="init();">
-    <!--CSS Section------------------------------------------------------------------------------------->
+    <!--CSS Section------------------------------------------------------------------------------------------------------------->
     <link href="css/reset.css" rel="stylesheet" />
     <link href="css/game.css" rel="stylesheet" />
-
+    
+    <!--JavaScript Section------------------------------------------------------------------------------------------------------>
+    <script src="Scripts/lib/impress.js"></script>
+    <script src="Scripts/game.js"></script>
     <script type="text/javascript">
         /*This function altars the outcome for certain choices once the idol item has been picked up */
         function hasIdol() {
-            document.getElementById("altar").innerHTML = "<p>A large tentacle reaches out of the " +
+            document.getElementById("altar-paragraph").innerHTML = "<p>A large tentacle reaches out of the " +
             "water and is about to grab you when the idol you picked begins glowing and sends out " +
             "a jolt of electricty zapping the tentacle. In a split second, with a large splash a " +
             "giant creature hops out of the water. You've angered the Kraken!</p>" +
-            "<p><a href=\"#12\">FIGHT</a> the Kraken.</p>" +
-            "<p><a href=\"#13\">RUN</a>!</p>";
+            "<p><a href=\"#kraken\">FIGHT</a> the Kraken.</p>" +
+            "<p><a href=\"#run\">RUN</a>!</p>";
         } //function hasIdol ends
 
         /*This function altars the outcome for certain choices once the sword item has been picked up */
@@ -30,7 +74,7 @@
             "arrive onshore a net is thrown over you. This island is inhabited... by cannibals! The " +
             "cannibals cook and eat you. You died.";
 
-            document.getElementById("kraken").innerHTML = "The Kraken swings one of its tentacles at you " +
+            document.getElementById("kraken-paragraph").innerHTML = "The Kraken swings one of its tentacles at you " +
             "but you cut it off mid-swing! The Kraken flinches and roars from the pain, leaving it open " +
             "for another attack. You charge at it and shove the sword directly into its head. The Kraken " +
             "falls over lifeless. You know you'll have all the food you need for a long time. You wait on " +
@@ -39,7 +83,7 @@
 
         //this function resets any changes made by collecting items in the game
         function reset() {
-            document.getElementById("altar").innerHTML = "<p>As you approach the altar a large tentacle " +
+            document.getElementById("altar-paragraph").innerHTML = "<p>As you approach the altar a large tentacle " +
             "reaches out of the water and grabs your leg. Before you have a chance to act you are dragged " +
             "under water. The last thing you see is a large open mouth. You died.</p>" +
             "<p><a href=\"#1\" onload=\"reset();\">START OVER</a></p>";
@@ -47,94 +91,98 @@
             document.getElementById("shark").innerHTML = "You punch the shark on the nose as hard as you " +
             "can. He doesn't flinch. The shark proceeds to bite you. You died.";
 
-            document.getElementById("kraken").innerHTML = "You run at the Kraken ready to punch with all " +
+            document.getElementById("kraken-paragraph").innerHTML = "You run at the Kraken ready to punch with all " +
             "your might. Before you can, the Kraken whips out a tentacle tripping you. The Kraken then " +
             "wraps one of its tentacles around you and throws you into its mouth. You died.";
         } //function reset ends
     </script>
 
+    <!--HTML Section------------------------------------------------------------------------------------------------------------>
     <div id="impress">
-        <!--Slide 1 - Starting Point-->
-        <!--Children are 2 and 3-->
-        <div id="1" class="step slide">
+        <!--Intro-->
+        <!--Linked to jungle and islands-->
+        <div id="intro" class="step slide">
             <div id="slide-text">
                 <p>
                     You were on a cruise ship when it hit a rock and sank. You awake on an uninhabited
                     island. You can either head into the jungle or swim to one of two fairly close islands you
                     see in the distance.
                 </p>
-                <p><a href="#2">HEAD</a> into the jungle.</p>
-                <p><a href="#3">SWIM</a> towards the islands.</p>
+                <p><a href="#jungle">HEAD</a> into the jungle.</p>
+                <p><a href="#islands">SWIM</a> towards the islands.</p>
             </div>
         </div>
 
-        <!--Slide 2 - Head to Jungle-->
-        <!--Children are 4 and 5-->
-        <div id="2" class="step slide" data-x="1500">
+        <!--Jungle-->
+        <!--Linked to climb and water-->
+        <div id="jungle" class="step slide" data-x="1500">
             <div id="slide-text">
                 <p>
                     You head into the jungle, but you are quite thirsty. You see a tree with coconuts in it,
                     but you also see what looks like it could be a body of fresh water closer to the centre
                     of the island.
                 </p>
-                <p><a href="#4">CLIMB</a> the tree.</p>
-                <p><a href="#5">HEAD</a> towards the water.</p>
+                <p><a href="#climb">CLIMB</a> the tree.</p>
+                <p><a href="#water">HEAD</a> towards the water.</p>
             </div>
         </div>
 
-        <!--Slide 4 - Climb the Tree-->
-        <div id="4" class="step slide" data-x="4500">
+        <!--Climb-->
+        <!--Linked to intro-->
+        <div id="climb" class="step slide" data-x="4500">
             <div id="slide-text">
                 <p>
                     You attempt to climb the tree. As you are climbing you lose your grip and fall
                     head-first to the ground. You died.
                 </p>
-                <p><a href="#1" onclick="reset();">START OVER</a></p>
+                <p><a href="#intro" onclick="reset();">START OVER</a></p>
             </div>
         </div>
 
-        <!--Slide 5 - Head Towards the Water-->
-        <!--Children are 8 and 9-->
-        <div id="5" class="step slide" data-x="6000">
+        <!--Water-->
+        <!--Linked to altar and shining-->
+        <div id="water" class="step slide" data-x="6000">
             <div id="slide-text">
                 <p>
                     You head to the water you spotted. As you approach, you notice a strange altar
                     infront of the lake. You also notice something shining off to your left.
                 </p>
-                <p>Head to the <a href="#8">ALTAR</a>.</p>
-                <p>Search for the source of the <a href="#9" onclick="hasSword();">SHINING</a>.</p>
+                <p>Head to the <a href="#altar">ALTAR</a>.</p>
+                <p>Search for the source of the <a href="#shining" onclick="hasSword();">SHINING</a>.</p>
             </div>
         </div>
 
-        <!--Slide 8 - The Altar-->
-        <!--Children are 12 and 13 (only if item has been collected)-->
-        <div id="8" class="step slide" data-x="10500">
+        <!--Altar-->
+        <!--Linked to kraken and run if idol has been collected, otherwise linked to intro-->
+        <div id="altar" class="step slide" data-x="10500">
             <div id="slide-text">
-                <div id="altar">
+                <div id="altar-paragraph">
                     <p>
                         As you approach the altar a large tentacle reaches out of the water and grabs
                         your leg. Before you have a chance to act you are dragged under water. The last
                         thing you see is a large open mouth. You died.
                     </p>
-                    <p><a href="#1">START OVER</a></p>
+                    <p><a href="#intro">START OVER</a></p>
                 </div>
             </div>
         </div>
 
-        <!--Slide 12 - Fight the Kraken-->
-        <div id="12" class="step slide" data-x="16500">
+        <!--Kraken-->
+        <!--Linked to intro-->
+        <div id="kraken" class="step slide" data-x="16500">
             <div id="slide-text">
-                <p id="kraken">
+                <p id="kraken-paragraph">
                     You run at the Kraken ready to punch with all your might. Before you can, the
                     Kraken whips out a tentacle tripping you. The Kraken then wraps one of its
                     tentacles around you and throws you into its mouth. You died.
                 </p>
-                <p><a href="#1">START OVER</a></p>
+                <p><a href="#intro">START OVER</a></p>
             </div>
         </div>
 
-        <!--Slide 13 - RUN!-->
-        <div id="13" class="step slide" data-x="18000">
+        <!--Run-->
+        <!--Linked to intro-->
+        <div id="run" class="step slide" data-x="18000">
             <div id="slide-text">
                 <div>
                     <p>
@@ -142,40 +190,41 @@
                         movement the Kraken raises one of its tentacles and slams it down on you. You
                         died.
                     </p>
-                    <p><a href="#1" onclick="reset();">START OVER</a></p>
+                    <p><a href="#intro" onclick="reset();">START OVER</a></p>
                 </div>
             </div>
         </div>
 
-        <!--Slide 9 - The Shining-->
-        <div id="9" class="step slide" data-x="12000">
+        <!--Shining-->
+        <!--Linked to altar and intro-->
+        <div id="shining" class="step slide" data-x="12000">
             <div id="slide-text">
                 <p>
                     You head towards the area you saw the shining light. You find a sword with the tip of
                     its blade stuck into the ground. You take the sword. You could now go to the altar
                     you saw earlier or head back to where you awoke.
                 </p>
-                <p><a href="#8">GO</a> to the altar.</p>
-                <p><a href="#1">BACK</a> to where you awoke.</p>
+                <p><a href="#altar">GO</a> to the altar.</p>
+                <p><a href="#intro">BACK</a> to where you awoke.</p>
             </div>
         </div>
 
-        <!--Slide 3 - Swim to Islands-->
-        <!--Children are 6 and 7-->
-        <div id="3" class="step slide" data-x="3000">
+        <!--Islands-->
+        <!--Linked to left and right-->
+        <div id="islands" class="step slide" data-x="3000">
             <div id="slide-text">
                 <p>
                     You swim towards the islands. Halfway through your swim, you must decide if you want to
                     head to the left island, or the right island.
                 </p>
-                <p>Swim to the <a href="#6" onclick="hasIdol();">LEFT</a> island.</p>
-                <p>Swim to the <a href="#7">RIGHT</a> island.</p>
+                <p>Swim to the <a href="#left" onclick="hasIdol();">LEFT</a> island.</p>
+                <p>Swim to the <a href="#right">RIGHT</a> island.</p>
             </div>
         </div>
 
-        <!--Slide 6 - Swimming to the Left Island-->
-        <!--Child is 14. Connected to 1 and 7-->
-        <div id="6" class="step slide" data-x="7500">
+        <!--Left-->
+        <!--Linked to continue, right and intro-->
+        <div id="left" class="step slide" data-x="7500">
             <div id="slide-text">
                 <p>
                     As you swim towards the left island, you find a strange wooden idol floating in the
@@ -183,14 +232,15 @@
                     you just left. You take the idol. Should you continue swimming to the left island,
                     instead go to the right island or go back to where you came from?
                 </p>
-                <p>Continue to the <a href="#14">LEFT</a> island.</p>
-                <p>Swim to the <a href="#7">RIGHT</a> island.</p>
-                <p>Go <a href="#1">BACK</a>.</p>
+                <p>Continue to the <a href="#continue">LEFT</a> island.</p>
+                <p>Swim to the <a href="#right">RIGHT</a> island.</p>
+                <p>Go <a href="#intro">BACK</a>.</p>
             </div>
         </div>
 
-        <!--Slide 14 - The Left Island-->
-        <div id="14" class="step slide" data-x="19500">
+        <!--Continue-->
+        <!--Linked to intro-->
+        <div id="continue" class="step slide" data-x="19500">
             <div id="slide-text">
                 <p>
                     As you get close to the island the idol you're carrying begins to glow. The water
@@ -199,50 +249,48 @@
                     your hand. The violent thrashing of the water whips you around -- conciousness fades.
                     You died.
                 </p>
-                <p><a href="#1" onclick="reset();">START OVER</a></p>
+                <p><a href="#intro" onclick="reset();">START OVER</a></p>
             </div>
         </div>
 
-        <!--Slide 7 - Swimming to the Right Island-->
-        <!--Children are 10 and 11-->
-        <div id="7" class="step slide" data-x="9000">
+        <!--Right-->
+        <!--Linked to fight, swim-->
+        <div id="right" class="step slide" data-x="9000">
             <div id="slide-text">
                 <p>
                     As you swim towards the right island, you see a shark in your path. He is swimming
                     directly towards you... he sees you too! You have two choices, attempt to fight the
                     shark or swim away as fast as you can.
                 </p>
-                <p><a href="#10">FIGHT</a> the shark.</p>
-                <p><a href="#11">SWIM</a> away.</p>
+                <p><a href="#fight">FIGHT</a> the shark.</p>
+                <p><a href="#swim">SWIM</a> away.</p>
             </div>
         </div>
 
-        <!--Slide 10 - Fight the Shark-->
-        <div id="10" class="step slide" data-x="13500">
+        <!--fight-->
+        <!--Linked to intro-->
+        <div id="fight" class="step slide" data-x="13500">
             <div id="slide-text">
                 <p id="shark">
                     You punch the shark on the nose as hard as you can. He doesn't flinch. The shark
                     proceeds to bite you. You died.
                 </p>
-                <p><a href="#1" onclick="reset();">START OVER</a></p>
+                <p><a href="#intro" onclick="reset();">START OVER</a></p>
             </div>
         </div>
 
-        <!--Slide 11 - Swimming Away-->
-        <div id="11" class="step slide" data-x="15000">
+        <!--Swim-->
+        <!--Linked to intro-->
+        <div id="swim" class="step slide" data-x="15000">
             <div id="slide-text">
                 <p>
                     You swim as fast as you can back towards the island you came from, but it's no use.
                     The shark is too fast and catches up to you. You feel the shark bite your legs and
                     you lose conciousness. You died.
                 </p>
-                <p><a href="#1" onclick="reset();">START OVER</a></p>
+                <p><a href="#intro" onclick="reset();">START OVER</a></p>
             </div>
         </div>
     </div>
-
-    <!--JavaScript Section------------------------------------------------------------------------------>
-    <script src="Scripts/lib/impress.js"></script>
-    <script src="Scripts/game.js"></script>
 </body>
 </html>
