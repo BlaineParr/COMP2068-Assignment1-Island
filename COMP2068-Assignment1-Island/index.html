@@ -38,6 +38,9 @@
     -Edited comments.
     -Removed unecessary folders.
     -Implement CSS from The Dragon game.
+
+    v1.5
+    -Added two decisions to the climb slide
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -128,12 +131,42 @@
         </div>
 
         <!--Climb-->
-        <!--Linked to intro-->
+        <!--Linked to reach and higher-->
         <div id="climb" class="step slide" data-x="4500">
             <div id="slide-text">
                 <p>
-                    You attempt to climb the tree. As you are climbing you lose your grip and fall
-                    head-first to the ground. You died.
+                    You attempt to climb the tree. The coconut is within arms reach, you could reach
+                    for it now without risking getting hurt badly from a fall, or climb a bit
+                    higher to make it easier to grab the coconut.
+                </p>
+                <p><a href="#reach">REACH</a> for the coconut.</p>
+                <p>Climb<a href="#higher">HIGHER</a>.</p>
+            </div>
+        </div>
+
+        <!--Reach-->
+        <!--Linked to intro-->
+        <div id="reach" class="step slide" data-x="21000">
+            <div id="slide-text">
+                <p>
+                    You reach for the coconut, you grab it! After you grab it and descend the tree,
+                    you notice something standing ahead of you... a baboon! He does not look happy.
+                    You stole a coconut from his tree! He runs at you and bites you! You pass out.
+                    You died.
+                </p>
+                <p><a href="#intro" onclick="reset();">START OVER</a></p>
+            </div>
+        </div>
+
+        <!--Higher-->
+        <!--Linked to intro-->
+        <div id="higher" class="step slide" data-x="22500">
+            <div id="slide-text">
+                <p>
+                    You climb close to the coconut. When you get close, you realize you are not
+                    alone in this tree. A monkey is at the top! As you reach for the coconut the
+                    monkey quickly snatches the coconut. The monkey seems to grin at you and then
+                    drops the coconut on your head. You fall out of the tree head-first. You died.
                 </p>
                 <p><a href="#intro" onclick="reset();">START OVER</a></p>
             </div>
